@@ -1,0 +1,24 @@
+{
+  "name": "you-comment-backend",
+  "version": "1.0.0",
+  "description": "Backend for YouComment Project",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HenryJiang97/YouComment-Backend.git"
+  },
+  "author": "Xin Wang & Hanhua Jiang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HenryJiang97/YouComment-Backend/issues"
+  },
+  "homepage": "https://github.com/HenryJiang97/YouComment-Backend#readme",
+  "dependencies": {
+    "firebase": "^8.1.2",
+    "firebase-admin": "^9.4.1"
+  }
+}
