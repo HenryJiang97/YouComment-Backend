@@ -4,17 +4,17 @@ const CommentSchema = require('./user.schema').UserSchema;
 const UserModel = mongoose.model("User", CommentSchema);
 mongoose.set('useFindAndModify', false);
 
-// Insert a new comment to the database
+// Insert a new user to the database
 function insertUser(user) {
     return UserModel.create(user);
 }
 
-// Get all comments in the database
+// Get all users in the database
 function getAllUsers() {
     return UserModel.find().exec();
 }
 
-// Find comment written by certain user
+// Find user by id
 function findUserById(userId) {
     return UserModel.findOne({id: userId}).exec();
 }
@@ -31,7 +31,7 @@ function addComment(userId, comment) {
     });
 }
 
-// Delete comment by id
+// Delete user by id
 function deleteUser(userId) {
     return UserModel.findOneAndDelete({id: userId}).exec();
 }
