@@ -14,10 +14,16 @@ function getAllComments() {
     return CommentModel.find().exec();
 }
 
-// Find comment written by certain user
+// Find comment by id
 function findCommentById(commentId) {
     return CommentModel.findOne({id: commentId}).exec();
 }
+
+// Find comment by video
+function findCommentById(videoId) {
+    return CommentModel.findOne({videoId: videoId}).exec();
+}
+
 
 // Edit comment content
 function editCommentContent(commentId, content) {
