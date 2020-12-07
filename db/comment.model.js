@@ -20,10 +20,9 @@ function findCommentById(commentId) {
 }
 
 // Find comment by video
-function findCommentById(videoId) {
+function findCommentByVideoId(videoId) {
     return CommentModel.findOne({videoId: videoId}).exec();
 }
-
 
 // Edit comment content
 function editCommentContent(commentId, content) {
@@ -45,6 +44,7 @@ module.exports = {
     insertComment,
     getAllComments,
     findCommentById,
+    findCommentByVideoId,
     editCommentContent,
     editCommentRating,
     deleteComment
