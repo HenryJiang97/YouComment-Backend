@@ -10,13 +10,13 @@ function insertComment(comment) {
 }
 
 // Get all comments in the database
-function getAllComment() {
+function getAllComments() {
     return CommentModel.find().exec();
 }
 
 // Find comment written by certain user
-function findCommentByUser(userId) {
-    return CommentModel.findOne({posterId: userId}).exec();
+function findCommentById(commentId) {
+    return CommentModel.findOne({id: commentId}).exec();
 }
 
 // Edit comment content
@@ -37,8 +37,8 @@ function deleteComment(commentId) {
 
 module.exports = {
     insertComment,
-    getAllComment,
-    findCommentByUser,
+    getAllComments,
+    findCommentById,
     editCommentContent,
     editCommentRating,
     deleteComment
