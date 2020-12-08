@@ -33,8 +33,8 @@ router.get('/:id', function(req, res) {
 
 
 // Get comment by video id
-router.get('/:id', function(req, res) {
-    return findCommentByVideoId(req.params.id)
+router.get('/videoId/:videoId', function(req, res) {
+    return findCommentByVideoId(req.params.videoId)
     .then(
         (response) => res.status(200).send(response),
         (error) => res.status(404).send("Error getting comment based on the video id")
