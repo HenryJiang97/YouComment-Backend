@@ -21,7 +21,7 @@ function findCommentById(commentId) {
 
 // Find comment by video
 function findCommentByVideoId(videoId) {
-    return CommentModel.findOne({videoId: videoId}).exec();
+    return CommentModel.find({videoId: videoId}).exec();
 }
 
 // Edit comment content
