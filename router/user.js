@@ -5,6 +5,7 @@ const {
     getAllUsers,
     findUserById,
     addComment,
+    editName,
     deleteUser
 } = require('../db/user.model');
 const router = express.Router();
@@ -56,7 +57,7 @@ router.post('/', function(req, res) {
 
 
 // Add comment to user
-router.put('/:comment', function(req, res) {
+router.put('/comment/:id/:comment', function(req, res) {
     addComment(req.query.id, req.params.comment)
     .then(function (response) {
         return res.status(200).send(response);
@@ -71,6 +72,17 @@ router.put('/:comment', function(req, res) {
     })
 });
 
+
+// Edit user name
+router.put('/name/:id/:name', function(req, res) {
+    const user = findUserById(req.params.id);
+    user.name = req.params.name;
+    return editName(req.params.id, user)
+        .then(
+            (response) => res.status(200).send(response),
+            (error) => res.status(404).send("Cannot edit user name")
+        );
+});
 
 // Delete user
 router.delete('/:id', function(req, res) {

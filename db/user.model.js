@@ -25,10 +25,15 @@ function addComment(userId, comment) {
         if (err) {
             return err;
         }
-        let comments = user.comments;
-        comments.push(comment);
-        return UserModel.findOneAndUpdate({id: userId}, {comments: comments}, {upsert: true}).exec();
+        let newUser = user;
+        newUser.comments.push(comment);
+        return UserModel.findOneAndUpdate({id: userId}, newUser, {upsert: true}).exec();
     });
+}
+
+// Edit username
+function editName(userId, user) {
+    return UserModel.findOneAndUpdate({id: userId}, user, {upsert: true}).exec();
 }
 
 // Delete user by id
@@ -42,5 +47,6 @@ module.exports = {
     getAllUsers,
     findUserById,
     addComment,
+    editName,
     deleteUser
 }
