@@ -23,7 +23,7 @@ router.get('/', function(req, res) {
 
 
 // Get comment by id
-router.get('/:id', function(req, res) {
+router.get('/comment/:id', function(req, res) {
     return findCommentById(req.params.id)
     .then(
         (response) => res.status(200).send(response),
@@ -49,7 +49,8 @@ router.post('/', function(req, res) {
         rating: req.body.rating,
         content: req.body.content,
         videoId: req.body.videoId,
-        posterId: req.body.posterId
+        posterId: req.body.posterId,
+        posterName: req.body.posterName
     };
 
     insertComment(comment)
@@ -68,8 +69,9 @@ router.post('/', function(req, res) {
 
 
 // Edit comment content
-router.put('/:content', function(req, res) {
-    editCommentContent(req.query.id, req.params.content)
+router.put('/content/:id/:content', function(req, res) {
+    console.log("CONTENT ", req.params.content);
+    editCommentContent(req.params.id, req.params.content)
     .then(function (response) {
         return res.status(200).send(response);
     }, function (error) {
@@ -85,7 +87,7 @@ router.put('/:content', function(req, res) {
 
 
 // Edit comment rating
-router.put('/:rating', function(req, res) {
+router.put('/rating/:rating', function(req, res) {
     editCommentRating(req.query.id, req.params.rating)
     .then(function (response) {
         return res.status(200).send(response);

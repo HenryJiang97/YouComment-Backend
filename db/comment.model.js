@@ -36,6 +36,7 @@ function editCommentRating(commentId, rating) {
 
 // Delete comment by id
 function deleteComment(commentId) {
+    console.log(commentId);
     return CommentModel.findOneAndDelete({id: commentId}).exec();
 }
 

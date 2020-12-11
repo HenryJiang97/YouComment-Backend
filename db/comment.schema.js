@@ -6,7 +6,8 @@ exports.CommentSchema = new mongoose.Schema({
     rating: Number,
     content: String,
     videoId: String,
-    posterId: String
+    posterId: String,
+    posterName: String
 }, {
     collection: 'comment'
 });
