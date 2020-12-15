@@ -37,7 +37,7 @@ router.post('/', function(req, res) {
         id: req.body.id,
         email: req.body.email,
         name: req.body.name,
-        type: "User",
+        type: req.body.usertype,
         comments: []
     };
 
