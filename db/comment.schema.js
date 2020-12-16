@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 
-
 exports.CommentSchema = new mongoose.Schema({
     id: String,
     rating: Number,

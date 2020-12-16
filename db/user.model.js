@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
-const CommentSchema = require('./user.schema').UserSchema;
-const UserModel = mongoose.model("User", CommentSchema);
+const UserSchema = require('./user.schema').UserSchema;
+const UserModel = mongoose.model("User", UserSchema);
 mongoose.set('useFindAndModify', false);
 
 // Insert a new user to the database

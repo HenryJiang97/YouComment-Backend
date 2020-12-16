@@ -2,6 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const userRouter = require('./router/user');
 const commentRouter = require('./router/comment');
+const commentCountRouter = require('./router/commentCount');
+
 const mongoose = require('mongoose');
 
 const app = express();
@@ -17,6 +19,8 @@ db.on('error', console.error.bind(console, 'Error connecting to mongo db'));
 app.use(cors());
 app.use('/api/user', userRouter);
 app.use('/api/comment', commentRouter);
+app.use('/api/commentCount', commentCountRouter);
+
 
 // Port setup
 const port = process.env.PORT || 3000;
